@@ -1,13 +1,13 @@
-package com.tounans.easyiot;
+package com.tounans.easyiot.generator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EasyiotApplication {
+public class GeneratorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EasyiotApplication.class, args);
+        SpringApplication.run(GeneratorApplication.class, args);
     }
 
 }
