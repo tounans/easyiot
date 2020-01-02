@@ -17,7 +17,14 @@
 
 
     <modules>
-<!--        <module>generator</module>-->
+        <module>generator</module>
+
+        <module>m-device</module>
+        <module>m-common</module>
+
+        <module>web-auth</module>
+        <module>web-operation</module>
+        <module>web-service</module>
 
     </modules>
 
@@ -40,13 +47,13 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus</artifactId>
-            <version>3.1.0</version>
+            <version>3.3.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.1.0</version>
+            <version>3.3.0</version>
         </dependency>
 
         <dependency>
@@ -71,7 +78,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.55</version>
+            <version>1.2.61</version>
         </dependency>
         <!-- fastjson end -->
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="page" th:fragment="pagination">
+    <div id="paging">
+
+    </div>
+
+
+    <script>
+
+        //扩展方法获取url参数
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+
+        var current = [[${current}]];
+        var pageNum = [[${pageNum}]];
+
+        function init() {
+            generatePage();
+            echo();
+        }
+
+        function echo(){
+            var paramList = window.location.search.substr(1).split('&');
+
+            for (param in paramList) {
+                if (paramList[param] == ("?") || paramList[param].length == 0) {
+
+                } else if (paramList[param].indexOf('page') < 0) {
+                    var tempParam = paramList[param].split("=");
+                    $("#"+tempParam[0]).val(decodeURI(tempParam[1]));
+                }
+            }
+        }
+
+        function generatePage(){
+            //生成翻页
+            var baseUrl = window.location.pathname;
+            var paramList = window.location.search.substr(1).split('&');
+            var temp = [];
+
+            for (param in paramList) {
+                if (paramList[param] == ("?") || paramList[param].length == 0) {
+
+                } else if (paramList[param].indexOf('page') < 0) {
+                    temp.push(paramList[param]);
+                }
+            }
+            temp.push("page=")
+            var endUrl = baseUrl + generateUrl(temp);
+
+            var sumPage = 10;
+            var temPage = 0;
+
+            if(current != 1) {
+                $("#paging").append("<a class=\"num\" href=\"" + endUrl + (current-1) + "\" >上一页</a>");
+            }
+
+            for (var i = 5; i >  0; i--) {
+
+                if( (current-i) > 0 ){
+                    temPage++;
+
+                    if ((current-i) == current) {
+                        $("#paging").append("<span class=\"current\">" + (current-i) + "</span>");
+                    } else {
+                        $("#paging").append("<a class=\"num\" href=\"" + endUrl + (current-i) + "\" >" + (current-i) + "</a>");
+                    }
+                }
+
+            }
+
+
+            for(var i = 0 ; i < sumPage - temPage ; i++){
+
+                if( (current + i) <= pageNum ){
+
+                    if ((current-i) == current) {
+                        $("#paging").append("<span class=\"current\">" + (current + i) + "</span>");
+                    } else {
+                        $("#paging").append("<a class=\"num\" href=\"" + endUrl + (current + i) + "\" >" + (current + i) + "</a>");
+                    }
+
+                }
+
+            }
+
+            if(pageNum != current && pageNum != 0) {
+                $("#paging").append("<a class=\"num\" href=\"" + endUrl + (current+1) + "\" >下一页</a>");
+            }
+        }
+
+        function generateUrl(list) {
+            var result = '';
+
+            for (s in list) {
+                if (s == 0) {
+                    result = '?' + result + list[s];
+                } else {
+                    result = result + '&' + list[s];
+                }
+
+            }
+
+            return result;
+        }
+    </script>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+server:
+  port: 8010
+
+spring:
+  jmx:
+    enabled: false
+  mqtt:
+    username: admin
+    password: public
+    url: tcp://127.0.0.1:1883
+    consumerId: consumer
+    producerId: producer
+    defaultTopic: /
+    completionTimeout: 200
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/easyiot?serverTimezone=GMT%2B8&useUnicode=true&amp&characterEncoding=utf-8
+    username: root
+    password: root
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

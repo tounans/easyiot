@@ -6,7 +6,6 @@
         <groupId>com.tounans</groupId>
         <artifactId>easyiot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.tounans.easyiot</groupId>
     <artifactId>generator</artifactId>
