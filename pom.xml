@@ -17,10 +17,11 @@
 
 
     <modules>
-        <module>generator</module>
+        <module>code-generator</module>
 
         <module>m-device</module>
         <module>m-common</module>
+        <module>m-push</module>
 
         <module>web-auth</module>
         <module>web-operation</module>

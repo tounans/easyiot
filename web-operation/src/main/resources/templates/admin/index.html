@@ -26,7 +26,7 @@
 <!-- 顶部开始 -->
 <div class="container">
     <div class="logo">
-        <a th:href="@{/index.html}">X-admin v2.2</a></div>
+        <a th:href="@{/admin/idnex}">Easy-Iot Beta version</a></div>
     <div class="left_open">
         <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
     </div>
@@ -130,6 +130,26 @@
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>管脚日志</cite></a>
                     </li>
+
+
+                </ul>
+
+            </li>
+
+            <li>
+
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="信息推送">&#xe6b8;</i>
+                    <cite>信息推送</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+
+                    <li>
+                        <a onclick="xadmin.add_tab('HTTP推送','/admin/pushHttp/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>HTTP推送</cite></a>
+                    </li>
+
 
 
                 </ul>
