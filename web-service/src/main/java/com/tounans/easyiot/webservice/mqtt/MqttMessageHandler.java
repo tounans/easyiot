@@ -1,6 +1,7 @@
 package com.tounans.easyiot.webservice.mqtt;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fcibook.quick.http.QuickHttp;
 import com.tounans.easyiot.device.entity.Device;
 import com.tounans.easyiot.device.entity.DeviceGpio;
 import com.tounans.easyiot.device.entity.DeviceUart;
@@ -64,6 +65,13 @@ public class MqttMessageHandler implements MessageHandler {
             DeviceGpio deviceGpio = deviceGpioService.getByUserDeviceIdAndGpioId(device.getUserDeviceId(), gpio);
             deviceGpioService.updateCurrent(deviceGpio.getDeviceId(),deviceGpio.getUserId(),deviceGpio.getGpioId(),state);
             deviceGpioLogService.addUpLog(device.getUserDeviceId(),device.getUserId(),deviceGpio.getUserGpioId(),state);
+            new Thread(new Runnable() {
+                // TODO:与回调服务器通讯需要改这里
+                @Override
+                public void run() {
+                    new QuickHttp().url("http://127.0.0.1:8040/").addParame("imei",device.getImei()).addParame("data",message).post().text();
+                }
+            }).start();
 
         }else if(method.equals("readUart")){
             //{"id":1,"method":"readUart","data":"abcdefg"}
@@ -72,6 +80,14 @@ public class MqttMessageHandler implements MessageHandler {
 
             DeviceUart deviceUart = deviceUartService.getReadByUserDeviceIdAndUartId(device.getUserDeviceId(), id);
             deviceUartLogService.addUpLog(device.getUserDeviceId(),device.getUserId(),deviceUart.getUserUartId(),data);
+
+            new Thread(new Runnable() {
+                // TODO:与回调服务器通讯需要改这里
+                @Override
+                public void run() {
+                    new QuickHttp().url("http://127.0.0.1:8040/").addParame("imei",device.getImei()).addParame("data",message).post().text();
+                }
+            }).start();
         }
     }
 

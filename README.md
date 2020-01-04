@@ -8,4 +8,5 @@ Easy-Iot
  web-service  | 8010 | 否  | 设备与服务器交互
  web-auth  | 8020 | 是 | 模块初始化获取配置文件 
  web-operation  | 8030 | 是  | 用户后台
+ web-push  | 8040 | 否  | 消息推送
   

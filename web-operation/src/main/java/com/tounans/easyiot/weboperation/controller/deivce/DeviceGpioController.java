@@ -65,6 +65,7 @@ public class DeviceGpioController {
 
         if(deviceGpioView != null){
             new Thread(new Runnable() {
+//                TODO:与服务服务器通讯需要改这里
                 @Override
                 public void run() {
                     new QuickHttp().url("http://127.0.0.1:8010/send/gpioOutput").addParame("imei",deviceGpioView.getImei()).addParame("gpio",deviceGpioView.getGpioId()+"").addParame("state",current+"").post().text();

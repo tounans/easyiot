@@ -7,10 +7,10 @@
         <artifactId>easyiot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.tounans.easy</groupId>
-    <artifactId>web-service</artifactId>
+    <groupId>com.tounans.easyiot</groupId>
+    <artifactId>web-push</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>web-service</name>
+    <name>web-push</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,9 +19,16 @@
 
     <dependencies>
 
+
         <dependency>
             <groupId>com.tounans.easyiot</groupId>
             <artifactId>m-device</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tounans.easyiot</groupId>
+            <artifactId>m-push</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -32,20 +39,17 @@
         </dependency>
 
 
-
-
-        <!-- mqtt start -->
         <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-stream</artifactId>
+            <groupId>com.fcibook.quick</groupId>
+            <artifactId>quick-http</artifactId>
+            <version>1.4</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-mqtt</artifactId>
-        </dependency>
-        <!-- mqtt end -->
 
-        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -57,7 +61,6 @@
             <!--                            </exclusion>-->
             <!--                        </exclusions>-->
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,11 +78,8 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>com.fcibook.quick</groupId>
-            <artifactId>quick-http</artifactId>
-            <version>1.4</version>
-        </dependency>
+
+
     </dependencies>
 
     <build>

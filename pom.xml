@@ -23,6 +23,7 @@
         <module>m-common</module>
         <module>m-push</module>
 
+        <module>web-push</module>
         <module>web-auth</module>
         <module>web-operation</module>
         <module>web-service</module>

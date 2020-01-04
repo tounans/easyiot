@@ -23,14 +23,14 @@
     <div class="layui-row">
         <form class="layui-form">
 
-            <input type="hidden" id="userUartId" name="userUartId"  th:value="${deviceUart?.userUartId}"/>
+            <input type="hidden" id="userPushId" name="userPushId"  th:value="${pushHttp?.userPushId}"/>
 
             <div class="layui-form-item">
-                <label for="imei" class="layui-form-label">
-                    <span class="x-red">*</span>IMEI
+                <label for="url" class="layui-form-label">
+                    <span class="x-red">*</span>URL
                 </label>
                 <div class="layui-input-inline">
-                    <input th:disabled="deviceUart?.userUartId==null" type="text" id="imei" name="imei" th:value="${deviceUart?.imei}" required="" autocomplete="off" class="layui-input">
+                    <input type="text" id="url" name="url" th:value="${pushHttp?.url}" required="" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>
@@ -38,11 +38,11 @@
             </div>
 
             <div class="layui-form-item">
-                <label for="uartId" class="layui-form-label">
-                    串口
+                <label for="timeOut" class="layui-form-label">
+                    超时时间
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="uartId" name="uartId" th:value="${deviceUart?.uartId}" required="" autocomplete="off" class="layui-input">
+                    <input type="text" id="timeOut" name="timeOut" th:value="${pushHttp?.timeOut}" required="" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">
                 </div>
@@ -55,8 +55,8 @@
 
                 <div class="layui-input-inline">
                     <select id="method" name="method" class="valid">
-                        <option value="1" th:selected="${deviceUart?.method == 1 }">写出</option>
-                        <option value="0" th:selected="${deviceUart?.method == 0 }">读取</option>
+                        <option value="1" th:selected="${pushHttp?.method == 1 }">POST</option>
+                        <option value="0" th:selected="${pushHttp?.method == 0 }">GET</option>
                     </select>
                 </div>
 
@@ -65,74 +65,18 @@
             </div>
 
             <div class="layui-form-item">
-                <label for="baud" class="layui-form-label">
-                    波特率
+                <label for="token" class="layui-form-label">
+                    TOKEN
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="baud" name="baud" th:value="${deviceUart?.baud}" required="" autocomplete="off" class="layui-input">
+                    <input type="text" id="token" name="token" th:value="${pushHttp?.token}" required="" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">
                 </div>
             </div>
 
             <div class="layui-form-item">
-                <label for="databits" class="layui-form-label">
-                    数据位
-                </label>
-                <div class="layui-input-inline">
-                    <input type="text" id="databits" name="databits" th:value="${deviceUart?.databits}" required="" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid layui-word-aux">
-                </div>
-            </div>
-
-            <div class="layui-form-item">
-                <label for="parity" class="layui-form-label">
-                    校验位
-                </label>
-                <div class="layui-input-inline">
-                    <select id="parity" name="parity" class="valid">
-                        <option value="0" th:selected="${deviceUart?.parity == 0 }">PAR_EVEN</option>
-                        <option value="1" th:selected="${deviceUart?.parity == 1 }">PAR_ODD</option>
-                        <option value="2" th:selected="${deviceUart?.parity == 2 }">PAR_NONE</option>
-                    </select>
-                </div>
-                <div class="layui-form-mid layui-word-aux">
-                </div>
-            </div>
-
-            <div class="layui-form-item">
-                <label for="stopbits" class="layui-form-label">
-                    停止位
-                </label>
-                <div class="layui-input-inline">
-                    <select id="stopbits" name="stopbits" class="valid">
-                        <option value="0" th:selected="${deviceUart?.stopbits == 0 }">STOP_1</option>
-                        <option value="2" th:selected="${deviceUart?.stopbits == 2 }">STOP_2</option>
-                    </select>
-                </div>
-                <div class="layui-form-mid layui-word-aux">
-                </div>
-            </div>
-
-            <div class="layui-form-item">
-                <label for="state" class="layui-form-label">
-                    状态
-                </label>
-                <div class="layui-input-inline">
-                    <select id="state" name="state" class="valid">
-                        <option value="true" th:selected="${deviceUart?.state == 1 }">启用</option>
-                        <option value="false" th:selected="${deviceUart?.state == 0 }">禁用</option>
-                    </select>
-                </div>
-
-                <div class="layui-form-mid layui-word-aux">
-                </div>
-            </div>
-
-
-            <div class="layui-form-item">
-                <label for="imei" class="layui-form-label">
+                <label for="token" class="layui-form-label">
                 </label>
                 <button  class="layui-btn" lay-filter="add" lay-submit="">
                     提交
@@ -160,7 +104,7 @@
                 var param=data.field;//定义临时变量获取表单提交过来的数据，非json格式
                 console.log(JSON.stringify(param));//测试是否获取到表单数据，调试模式下在页面控制台查看
                 $.ajax({
-                    url:"/admin/deviceUart/edit",
+                    url:"/admin/pushHttp/edit",
                     type:'post',//method请求方式，get或者post
                     dataType:'json',//预期服务器返回的数据类型
                     data:JSON.stringify(param),//表格数据序列化

@@ -11,6 +11,7 @@ import com.tounans.easyiot.push.service.IPushHttpService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -44,6 +45,11 @@ public class PushHttpServiceImpl extends ServiceImpl<PushHttpMapper, PushHttp> i
     @Override
     public PushHttp getByUserAndUserPushId(Integer userId, Integer userPushId) {
         return this.getOne(new QueryWrapper<PushHttp>().lambda().eq(PushHttp::getUserId,userId).eq(PushHttp::getUserPushId,userPushId));
+    }
+
+    @Override
+    public List<PushHttp> listByUserId(Integer userId) {
+        return list(new QueryWrapper<PushHttp>().lambda().eq(PushHttp::getUserId,userId));
     }
 
     @Override

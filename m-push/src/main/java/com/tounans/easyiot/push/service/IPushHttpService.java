@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.tounans.easyiot.push.entity.PushHttp;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -17,6 +19,8 @@ public interface IPushHttpService extends IService<PushHttp> {
     IPage<PushHttp> pageByUserParam(Integer page, Integer userId);
 
     PushHttp getByUserAndUserPushId(Integer userId, Integer userPushId);
+
+    List<PushHttp> listByUserId(Integer userId);
 
     boolean saveOrUpdatePushHttp(Integer userId, PushHttp pushHttp);
 }

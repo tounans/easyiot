@@ -64,6 +64,7 @@ public class DeviceUartController {
 
         if(deviceUartView != null){
             new Thread(new Runnable() {
+                //                TODO:与服务服务器通讯需要改这里
                 @Override
                 public void run() {
                     new QuickHttp().url("http://127.0.0.1:8010/send/uartOutput").addParame("imei",deviceUartView.getImei()).addParame("uart",deviceUartView.getUartId()+"").addParame("msg",msg+"").post().text();

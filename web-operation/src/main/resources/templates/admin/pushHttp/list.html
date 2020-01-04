@@ -69,7 +69,7 @@
                         <tr th:each="pushHttp:${pushHttpList}">
                             <td th:text="${pushHttp?.userPushId}">1</td>
                             <td th:text="${pushHttp.url}">imei</td>
-                            <td th:text="${pushHttp?.method == 0?'POST' : 'GET'}">1</td>
+                            <td th:text="${pushHttp?.method == 0?'GET' : 'POST'}">1</td>
                             <td th:text="${#temporals.format(pushHttp?.addTime,'yyyy-MM-dd HH:mm:ss')}">1</td>
                             <td th:text="${pushHttp?.state?'启用':'禁用'}">1</td>
                             <td class="td-manage">

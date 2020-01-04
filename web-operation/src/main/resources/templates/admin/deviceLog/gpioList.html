@@ -65,7 +65,7 @@
                             <th>类型</th>
                             <th>电平</th>
                             <th>添加时间</th>
-                            <th>操作</th></tr>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr th:each="deviceGpioLog:${deviceGpioLogList}">
@@ -76,16 +76,7 @@
                             <td th:text="${deviceGpioLog?.type==0?'上报':'下发'}">类型</td>
                             <td th:text="${deviceGpioLog?.state==1?'高':'低'}">类型</td>
                             <td th:text="${#temporals.format(deviceGpioLog?.addTime,'yyyy-MM-dd HH:mm:ss')}">1</td>
-                            <td class="td-manage">
 
-                                <a title="查看" th:onclick="|xadmin.open('编辑设备','@{/admin/device/toEdit(userDeviceId=${deviceGpioLog.userLogId})}',800,600)|" href="javascript:;">
-                                    <i class="layui-icon">&#xe63c;</i></a>
-
-                                <a title="设置管脚" th:onclick="|xadmin.open('设置管脚','@{/admin/device/toEdit(userDeviceId=${deviceGpioLog.userLogId})}',800,600)|" href="javascript:;">
-                                    <i class="layui-icon">&#xe63c;</i></a>
-                                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                    <i class="layui-icon">&#xe640;</i></a>
-                            </td>
                         </tr>
 
                         </tbody>
