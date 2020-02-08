@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class ResultMethodJson {
-    private static final long serialVersionUID = 1L;
 
     private String method = "";
     private Object data = "";

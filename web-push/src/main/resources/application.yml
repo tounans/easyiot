@@ -1,6 +1,14 @@
 server:
   port: 8040
 
+
+netty:
+  wss:
+    port: 8088
+    sslType: JKS
+    sslPath: D://wss.jks
+    sslPass: netty123
+
 spring:
   jmx:
     enabled: false

@@ -7,6 +7,9 @@ import com.tounans.easyiot.device.service.IDeviceService;
 import com.tounans.easyiot.push.entity.PushHttp;
 import com.tounans.easyiot.push.service.IPushHttpService;
 import com.tounans.easyiot.webpush.service.IPushService;
+import com.tounans.easyiot.webpush.wss.UserChannlRel;
+import io.netty.channel.Channel;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +47,11 @@ public class IndexController {
                         }
                     }).start();
                 }
+            }
+
+            Channel channel = UserChannlRel.get(device.getUserId() + "");
+            if(channel !=null){
+                channel.writeAndFlush(new TextWebSocketFrame(data));
             }
 
 
