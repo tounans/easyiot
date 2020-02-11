@@ -23,6 +23,7 @@
         <module>m-common</module>
         <module>m-push</module>
         <module>m-user</module>
+        <module>m-config</module>
 
         <module>web-push</module>
         <module>web-auth</module>
@@ -46,6 +47,12 @@
         <!--    fasterxml    END-->
 
         <!-- mysql plus start-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.21</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.baomidou</groupId>
