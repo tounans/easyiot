@@ -28,5 +28,8 @@ Easy-Iot
 	* 项目并不是真正意义上的微服务、分布式只是多个SpringBoot项目
 	* 各个Web层之间通讯用的是HTTP POST已经在TODO中注明位置
 	
+**用到的框架**
+---
+Spring Boot + Netty + Mybatis
 
 本项目仅是给各位和我一样的小白们一个开发思路，很多设计、代码问题请指出我会及时改正。
