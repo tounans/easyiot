@@ -7,7 +7,7 @@ import com.tounans.easyiot.device.entity.DeviceUart;
 import com.tounans.easyiot.device.service.IDeviceGpioService;
 import com.tounans.easyiot.device.service.IDeviceService;
 import com.tounans.easyiot.device.service.IDeviceUartService;
-import com.tounans.easyiot.device.view.DeviceConfig;
+import com.tounans.easyiot.webauth.view.DeviceConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

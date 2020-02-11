@@ -21,6 +21,12 @@
 
         <dependency>
             <groupId>com.tounans.easyiot</groupId>
+            <artifactId>m-config</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tounans.easyiot</groupId>
             <artifactId>m-push</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

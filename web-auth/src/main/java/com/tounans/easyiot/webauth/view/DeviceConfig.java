@@ -1,4 +1,4 @@
-package com.tounans.easyiot.device.view;
+package com.tounans.easyiot.webauth.view;
 
 import com.tounans.easyiot.device.entity.DeviceGpio;
 import com.tounans.easyiot.device.entity.DeviceUart;
