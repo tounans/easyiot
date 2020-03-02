@@ -1,9 +1,4 @@
-server:
-  port: 8030
-
 spring:
-  application:
-    name: easyiot-device
   jmx:
     enabled: false
   datasource:
@@ -25,10 +20,6 @@ spring:
       maxOpenPreparedStatements: 100
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*/*Mapper.xml

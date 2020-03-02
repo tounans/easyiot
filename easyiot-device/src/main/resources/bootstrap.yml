@@ -1,0 +1,10 @@
+server:
+  port: 8030
+
+spring:
+  cloud:
+    config:
+      profile: dev
+        uri: http://localhost:8761
+  application:
+    name: easyiot-device
