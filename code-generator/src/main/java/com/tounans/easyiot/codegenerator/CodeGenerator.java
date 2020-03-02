@@ -1,5 +1,6 @@
 package com.tounans.easyiot.codegenerator;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -55,6 +56,7 @@ public class CodeGenerator {
         dsc.setUrl("jdbc:mysql://127.0.0.1:3307/easyiot?serverTimezone=GMT%2B8&useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setDbType(DbType.MYSQL);
         dsc.setUsername("root");
         dsc.setPassword("root");
         mpg.setDataSource(dsc);
