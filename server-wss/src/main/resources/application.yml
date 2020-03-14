@@ -1,0 +1,30 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: server-wss
+
+netty:
+  wss:
+    port: 8088
+    sslType: JKS
+    sslPath: D://wss.jks
+    sslPass: netty123
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+  hystrix:
+    enabled: false
+
+
+

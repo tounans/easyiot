@@ -1,0 +1,14 @@
+server:
+  port: 8761
+
+eureka:
+  server:
+    enable-self-preservation: false #开发环境关闭
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #表明该实例是否应该与尤里卡服务器登记其信息被别人发现。在某些情况下,您不希望您的实例被发现而你想发现其他实例。默认为true
+    fetch-registry: false #表明这个客户是否应该从尤里卡服务器获取尤里卡注册表信息。默认为true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+

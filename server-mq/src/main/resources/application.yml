@@ -1,0 +1,32 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: server-mq
+  jmx:
+    enabled: false
+  mqtt:
+    username: admin
+    password: public
+    url: tcp://127.0.0.1:1883
+    consumerId: consumer
+    producerId: producer
+    defaultTopic: /
+    completionTimeout: 200
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+  hystrix:
+    enabled: true
+

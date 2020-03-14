@@ -1,0 +1,4 @@
+# 命令
+keytool -genkeypair -alias easyiot -validity 36500 -keyalg RSA  -keypass easyiot -keystore easyiot.keystore -storepass easyiot
+
+keytool -list -rfc --keystore easyiot.keystore | openssl x509 -inform pem -pubkey
