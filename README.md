@@ -51,7 +51,19 @@ Java中需要修改的地方
 ```java
 //各个目录中的application.yml
 //用 data/key 目录下的 生成Key.txt 生成自己的Key 替换 resource中的 key
+// wss 路径设置、心跳时间设置 在server-wss下com/tounans/easyiot/easyiotwss/wss/WssServerInitialzer.java
 ```
 
+LUA中需要修改的地方
+```javascript
+//main.lua
+
+_G.initUrl  = "http://localhost/init" 
+_G.mqttHost = "127.0.0.1"
+_G.mqttPort = "8765"
+_G.mqttUser = "username"
+_G.mqttPass = "password"
+
+```
 
 本项目仅是给各位和我一样的小白们一个开发思路，很多设计、代码问题请指出我会及时改正。
