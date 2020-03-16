@@ -37,6 +37,9 @@ Easy-Iot 用到的技术<br/>
 
 **运行**
 ---
+
+默认账号 admin 密码 123456
+
 UNI中需要修改的地方如下
 ```javascript
 // js/common.js
