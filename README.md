@@ -1,9 +1,6 @@
 
-<h3 align="center">Easy-iot</h3>
+<h1 align="center">Easy-iot</h1>
 ====  
-  
-基于合宙Air202模块可使用户免开发对模块进行管脚管理，串口收发等操作。  
-  
   
  |模块|端口|是否暴露|描述   |
  | ------------- | ------------- | -------------  | -------------  |
@@ -19,20 +16,24 @@
  |server-server|8761|否|Eureka|
  
 
-**后续规划**
+**介绍**
 ---
-1
---
+Easy-Iot是基于合宙Air202模块可使用户免开发对模块进行管脚管理，串口收发等操作。  
 
-**已知问题**
+Easy-Iot 用到的技术
+1.主要：`Spring Cloud`
+2.安全：`Spring Security`
+3.持久层：`Mybatis plus`、`Redis`
+4.通信：`Netty`
+5.前端：`UNI-App`
+6.UI：`ColorUI`
+
+编译后可直接在微信小程序、IOS、Android...上运行
+
+**截图**
 ---
+<img src="https://github.com/tounans/easyiot/blob/master/data/img/home.png" width="375" />
+<img src="https://github.com/tounans/easyiot/blob/master/data/img/msg.png" width="375" />
 
-1
-	
-**用到的框架**
----
-
-
-Spring Cloud + Netty + Mybatis + UNI-APP
 
 本项目仅是给各位和我一样的小白们一个开发思路，很多设计、代码问题请指出我会及时改正。
