@@ -11,10 +11,6 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.util.AttributeKey;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
-import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -44,17 +40,6 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
             ctx.close();
         }
 
-//        if(-1 != url.indexOf("/ws")) {
-//            String temp [] = url.split(";");
-//            String name = URLDecoder.decode(temp[1], "UTF-8");
-//            ctx.channel().attr(key).set(name);
-//
-//            // 传递到下一个handler：升级握手
-//            ctx.fireChannelRead(request.retain());
-//        } else {
-//            System.out.println("not socket");
-//            ctx.close();
-//        }
 
     }
 

@@ -77,11 +77,13 @@ public class ControllerAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
         boolean source = request.getHeader("source")!=null;
-        Enumeration<String> headerNames = request.getHeaderNames();
-        while(headerNames.hasMoreElements()){
-            String s = headerNames.nextElement();
-            System.out.println(s+":"+request.getHeader(s));
-        }
+
+//        Enumeration<String> headerNames = request.getHeaderNames();
+//        while(headerNames.hasMoreElements()){
+//            String s = headerNames.nextElement();
+//            System.out.println(s+":"+request.getHeader(s));
+//        }
+
         Object result = null;
 
         try {

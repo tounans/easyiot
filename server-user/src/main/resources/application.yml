@@ -26,16 +26,6 @@ spring:
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
 
-#security:
-#  oauth2:
-#    client:
-#      client-id: client
-#      client-secret: secret
-#      access-token-uri: http://localhost:8040/oauth/token
-#      user-authorization-uri: http://localhost:8040/oauth/authorize
-#    resource:
-#      token-info-uri: http://localhost:8040/oauth/check_token
-
 eureka:
   client:
     service-url:

@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import com.tounans.easyiot.common.entity.user.User;
 import com.tounans.easyiot.common.model.response.CommonCode;
 import com.tounans.easyiot.common.model.response.ResponseResult;
+import com.tounans.easyiot.common.utlis.JwtUtil;
 import com.tounans.easyiot.easyiotzuul.service.IAuthService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,13 +61,9 @@ public class LoginFilter extends ZuulFilter {
         RequestContext requestContext = RequestContext.getCurrentContext();
         //得到request
         HttpServletRequest request = requestContext.getRequest();
-        //得到response
-        HttpServletResponse response = requestContext.getResponse();
-        //取cookie中的身份令牌
-        String tokenFromCookie = authService.getTokenFromCookie(request);
-        if(StringUtils.isEmpty(tokenFromCookie)){
-            //拒绝访问
-            access_denied();
+        String requestURI = request.getRequestURI();
+        int i = requestURI.indexOf("/init");
+        if (i>-1){
             return null;
         }
         //从header中取jwt
@@ -75,8 +73,15 @@ public class LoginFilter extends ZuulFilter {
             access_denied();
             return null;
         }
+        String token = null;
+        try{
+            token = JwtUtil.getToken(JwtUtil.getJwt("publickey.txt", jwtFromHeader));
+        }catch (Exception e){
+            access_denied();
+            return null;
+        }
         //从redis取出jwt的过期时间
-        long expire = authService.getExpire(tokenFromCookie);
+        long expire = authService.getExpire(token);
         if(expire<0){
             //拒绝访问
             access_denied();

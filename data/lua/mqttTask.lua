@@ -57,11 +57,11 @@ sys.taskInit(
             if socket.isReady() then
                 local imei = misc.getImei()
                 --创建一个MQTT客户端
-                local mqttClient = mqtt.client(imei,30,"admin","public")
+                local mqttClient = mqtt.client(imei,30,_G.mqttUser,_G.mqttPass)
                 --阻塞执行MQTT CONNECT动作，直至成功
                 --如果使用ssl连接，打开mqttClient:connect("lbsmqtt.airm2m.com",1884,"tcp_ssl",{caCert="ca.crt"})，根据自己的需求配置
                 --mqttClient:connect("lbsmqtt.airm2m.com",1884,"tcp_ssl",{caCert="ca.crt"})
-                if mqttClient:connect("s5.nsloop.com",25910,"tcp") then
+                if mqttClient:connect(_G.mqttHost,_G.mqttPort,"tcp") then
                     retryConnectCnt = 0
                     ready = true
                     --订阅主题

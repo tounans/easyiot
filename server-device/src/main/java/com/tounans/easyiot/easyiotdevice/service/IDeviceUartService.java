@@ -26,4 +26,6 @@ public interface IDeviceUartService extends IService<DeviceUart> {
     DeviceUart getByUserDeviceIdAndUartId(Integer userDeviceId, Integer uartId);
 
     List<DeviceUart> getListByUserId(Integer userId);
+
+    List<DeviceUart> listByUserIdAndDeviceIdAndState(Integer userId,Integer userDeviceId,boolean state);
 }

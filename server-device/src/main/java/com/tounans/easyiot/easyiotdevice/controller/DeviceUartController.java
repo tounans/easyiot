@@ -81,6 +81,11 @@ public class DeviceUartController {
         return deviceUartService.getByUserDeviceIdAndUartId(userDeviceId,uartId);
     }
 
+    @RequestMapping("/listByUserIdAndDeviceIdAndState")
+    public Object listByUserIdAndDeviceIdAndState(Integer userId,Integer userDeviceId,boolean state){
+        return  deviceUartService.listByUserIdAndDeviceIdAndState(userId, userDeviceId, state);
+    }
+
 
 
 }

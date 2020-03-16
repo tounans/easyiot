@@ -11,7 +11,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 
 
-
 zuul:
   routes:
     server-device:
@@ -22,3 +21,23 @@ zuul:
       strip-prefix: true #true：代理转发时去掉前缀，false:代理转发时不去掉前缀
       sensitiveHeaders:  #默认zuul会屏蔽cookie，cookie不会传到下游服务，这里设置为空则取消默认的黑名单，如果设置了具体的头信息则不会传到下游服务
       #   ignoredHeaders: 默认为空表示不过虑任何头
+    server-config:
+      path: /config/**
+      serviceId: server-config
+      strip-prefix: true
+      sensitiveHeaders:
+    server-push:
+      path: /push/**
+      serviceId: server-push
+      strip-prefix: true
+      sensitiveHeaders:
+    server-user:
+      path: /user/**
+      serviceId: server-user
+      strip-prefix: true
+      sensitiveHeaders:
+    server-init:
+      path: /init/**
+      serviceId: server-init
+      strip-prefix: true
+      sensitiveHeaders:

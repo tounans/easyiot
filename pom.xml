@@ -17,7 +17,6 @@
 
 
     <modules>
-<!--        <module>code-generator</module>-->
 
         <module>common</module>
 
@@ -25,6 +24,7 @@
         <module>server-auth</module>
         <module>server-config</module>
         <module>server-device</module>
+        <module>server-init</module>
         <module>server-mq</module>
         <module>server-push</module>
         <module>server-server</module>

@@ -101,7 +101,7 @@ public class DeviceController {
     }
 
     @RequestMapping(value = "/getDeviceByImei",method = RequestMethod.POST)
-    public Device getDeviceByImei(String imei){
+    public Object getDeviceByImei(String imei){
 
         Device device = deviceService.getDeviceByImei(imei);
 

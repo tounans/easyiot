@@ -30,6 +30,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+
+
+        <dependency>
             <groupId>com.tounans.easyiot</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>

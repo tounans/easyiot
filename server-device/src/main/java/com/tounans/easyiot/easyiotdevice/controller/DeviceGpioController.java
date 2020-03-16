@@ -104,7 +104,18 @@ public class DeviceGpioController {
     }
 
 
-
+    /**
+     * 设备初始化使用
+     * @param userId
+     * @param userDeviceId
+     * @param state
+     * @return
+     */
+    @RequestMapping("/listByUserIdAndDeviceIdAndState")
+    public Object listByUserIdAndDeviceIdAndState(Integer userId, Integer userDeviceId, boolean state){
+        List<DeviceGpio> deviceGpios = deviceGpioService.listByUserIdAndDeviceIdAndState(userId, userDeviceId, state);
+        return deviceGpios;
+    }
 
 
 }

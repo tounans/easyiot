@@ -1,0 +1,75 @@
+{
+	"pages": [
+		{
+			"path": "pages/login",
+			"style": {}
+		}
+		,{
+			"path": "pages/index/index",
+			"style": {}
+		}
+		,{
+			"path": "pages/index/basics",
+			"style": {}
+		}
+		,{
+			"path": "pages/index/wss",
+			"style": {}
+		}		
+		,{
+			"path": "pages/device/device/list",
+			"style": {}
+		}
+	    ,{
+            "path" : "pages/device/device/edit",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/device/device/add",
+		    "style" : {}
+		}
+		,{
+			"path": "pages/device/gpio/list",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/gpio/edit",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/gpio/add",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/uart/list",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/uart/edit",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/uart/add",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/log/uart",
+			"style": {}
+		}
+		,{
+			"path": "pages/device/log/gpio",
+			"style": {}
+		}
+    ],
+	"globalStyle": {
+		"mp-alipay": {
+			"transparentTitle": "always",
+			"allowsBounceVertical": "NO"
+		},
+		"navigationBarBackgroundColor": "#0081ff",
+		"navigationBarTitleText": "EasyIot",
+		"navigationStyle": "custom",
+		"navigationBarTextStyle": "white"
+	}
+
+}

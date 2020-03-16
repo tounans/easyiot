@@ -15,21 +15,26 @@ require "nvm"
 require "audio"
 require "misc"
 require "config"
-
+require "mqttTask"
 require "init"
 
 -- 同步时间
 require "ntp"
 ntp.timeSync(1)
-log.info("uart.PAR_ODD或uart.PAR_NONE", uart.PAR_ODD,uart.PAR_NONE,uart.STOP_2)
 
 -- 看门狗
 require "wdt"
 wdt.setup(pio.P0_30, pio.P0_31)
 
 
---加载MQTT功能测试模块
-require "mqttTask"
+
+
+
+_G.initUrl  = "http://localhost/init"
+_G.mqttHost = "127.0.0.1"
+_G.mqttPort = "8765"
+_G.mqttUser = "username"
+_G.mqttPass = "password"
 
 --启动系统框架
 sys.init(0, 0)

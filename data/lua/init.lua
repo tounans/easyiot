@@ -101,7 +101,7 @@ end
 -- 通过HTTP 获得配置
 function getConfig() 
 
-    local url = "http://s5.nsloop.com:30411/init"
+    local url = _G.initUrl
 
     local timeout = 1000*3
 

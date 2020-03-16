@@ -80,4 +80,9 @@ public class DeviceUartServiceImpl extends ServiceImpl<DeviceUartMapper, DeviceU
     public List<DeviceUart> getListByUserId(Integer userId) {
         return this.list(new QueryWrapper<DeviceUart>().lambda().eq(DeviceUart::getUserId,userId));
     }
+
+    @Override
+    public List<DeviceUart> listByUserIdAndDeviceIdAndState(Integer userId, Integer userDeviceId, boolean state) {
+        return this.list(new QueryWrapper<DeviceUart>().lambda().eq(DeviceUart::getDeviceId,userDeviceId).eq(DeviceUart::getUserId,userId).eq(DeviceUart::getState,state));
+    }
 }

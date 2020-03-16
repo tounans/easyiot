@@ -120,7 +120,21 @@ public interface DeviceClient {
      * @return
      */
     @RequestMapping(value = "/deviceGpio/getAll", method = RequestMethod.POST)
-    List<Device> getAllDeviceGpio(@RequestParam("userId") Integer userId);
+    List<DeviceGpio> getAllDeviceGpio(@RequestParam("userId") Integer userId);
+
+
+
+    /**
+     * 设备初始化使用
+     * @param userId
+     * @param userDeviceId
+     * @param state
+     * @return
+     */
+    @RequestMapping(value = "/deviceGpio/listByUserIdAndDeviceIdAndState", method = RequestMethod.POST)
+    List<DeviceGpio> gpioListByUserIdAndDeviceIdAndState(@RequestParam("userId") Integer userId,
+                                                     @RequestParam("userDeviceId") Integer userDeviceId,
+                                                     @RequestParam("state") boolean state);
     //  ---------------  DeviceGpio end   ---------------
 
 
@@ -183,6 +197,18 @@ public interface DeviceClient {
      */
     @RequestMapping(value = "/deviceUart/getAll", method = RequestMethod.POST)
     List<DeviceUart> getAll(@RequestParam("userId") Integer userId);
+
+    /**
+     * 设备初始化使用
+     * @param userId
+     * @param userDeviceId
+     * @param state
+     * @return
+     */
+    @RequestMapping(value = "/deviceUart/listByUserIdAndDeviceIdAndState", method = RequestMethod.POST)
+    List<DeviceUart> uartListByUserIdAndDeviceIdAndState(@RequestParam("userId") Integer userId,
+                                                         @RequestParam("userDeviceId") Integer userDeviceId,
+                                                         @RequestParam("state") boolean state);
     //  ---------------  DeviceUart end   ---------------
 
 

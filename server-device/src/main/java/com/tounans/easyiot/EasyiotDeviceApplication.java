@@ -22,21 +22,23 @@ public class EasyiotDeviceApplication {
         SpringApplication.run(EasyiotDeviceApplication.class, args);
     }
 
-    //全局配置跨域
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                 // 允许跨域访问资源定义： /api/ 所有资源
-                registry.addMapping("/**")
-                        // 只允许本地的9000端口访问
-                        .allowedOrigins("*")
-                        // 允许发送Cookie
-                        .allowCredentials(true)
-                        // 允许所有方法
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD");
-            }
-        };
-    }
+//    //全局配置跨域
+//    @Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return new WebMvcConfigurerAdapter() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                 // 允许跨域访问资源定义： /api/ 所有资源
+//                registry.addMapping("/**")
+//                        // 只允许本地的9000端口访问
+//                        .allowedOrigins("*")
+//                        // 允许发送Cookie
+//                        .allowCredentials(true)
+//                        // 允许所有方法
+//                        .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD");
+//            }
+//        };
+//    }
+
+
 }

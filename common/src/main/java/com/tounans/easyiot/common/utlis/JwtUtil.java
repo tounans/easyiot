@@ -1,5 +1,4 @@
 package com.tounans.easyiot.common.utlis;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tounans.easyiot.common.entity.user.User;
 import org.springframework.core.io.ClassPathResource;
@@ -24,6 +23,12 @@ public class JwtUtil {
           }
           String publicKey = getTemplateContent(file);
           return JwtHelper.decodeAndVerify(jwtString, new RsaVerifier(publicKey));
+     }
+
+     public static String getToken(Jwt jwt){
+          String claims = jwt.getClaims();
+          JSONObject jsonObject = JSONObject.parseObject(claims);
+          return jsonObject.getString("jti");
      }
 
      public static User getUser(Jwt jwt){
