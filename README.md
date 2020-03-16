@@ -35,6 +35,23 @@ Easy-Iot 用到的技术<br/>
  | ------------- | ------------- | -------------  | -------------  |
  |<img src="https://github.com/tounans/easyiot/blob/master/data/img/home.jpg" width="200" />|<img src="https://github.com/tounans/easyiot/blob/master/data/img/gpio_edit.jpg" width="200" />|<img src="https://github.com/tounans/easyiot/blob/master/data/img/uart_edit.jpg" width="200" />|<img src="https://github.com/tounans/easyiot/blob/master/data/img/msg.jpg" width="200" />|
 
+**运行**
+---
+UNI中需要修改的地方如下
+```javascript
+// js/common.js
+const baseUrl = "http://localhost/";
+// js/user.js
+const baseUrl = "http://localhost:8040/auth";
+// pages/index/wss.vue
+baseUrl :"wss://127.0.0.1:8088/ws"
+```
+
+Java中需要修改的地方
+```java
+//各个目录中的application.yml
+//用 data/key 目录下的 生成Key.txt 生成自己的Key 替换 resource中的 key
+```
 
 
 本项目仅是给各位和我一样的小白们一个开发思路，很多设计、代码问题请指出我会及时改正。
