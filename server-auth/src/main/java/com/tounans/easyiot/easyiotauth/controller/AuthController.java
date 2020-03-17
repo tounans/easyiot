@@ -1,5 +1,7 @@
 package com.tounans.easyiot.easyiotauth.controller;
 
+import com.tounans.easyiot.common.client.UserClient;
+import com.tounans.easyiot.common.entity.user.User;
 import com.tounans.easyiot.common.exception.ExceptionCast;
 import com.tounans.easyiot.common.model.auth.AuthCode;
 import com.tounans.easyiot.common.model.auth.AuthToken;
@@ -11,6 +13,7 @@ import com.tounans.easyiot.easyiotauth.service.IAuthService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -35,6 +38,9 @@ public class AuthController {
 
     @Autowired
     IAuthService authService;
+
+    @Autowired
+    UserClient userClient;
 
     @RequestMapping("/userlogin")
     public ResponseResult login(LoginRequest loginRequest) {
@@ -90,6 +96,18 @@ public class AuthController {
         this.clearCookie(uid);
         return new ResponseResult().success(CommonCode.SUCCESS);
     }
+
+    @RequestMapping("/registered")
+    public ResponseResult registered(User user){
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        Boolean registered = userClient.AuthRegistered(user);
+        if (registered){
+            return new ResponseResult().success(CommonCode.SUCCESS);
+        }
+        return new ResponseResult().failure("用户名可能被占用咯~");
+    }
+
+
 
 
     //将令牌存储到cookie

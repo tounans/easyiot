@@ -4,6 +4,10 @@ function login(user){
 	return post("/userlogin",user)
 }
 
+function registered(user){
+	return post("/registered",user)
+}
+
 function userjwt(token){
 	
 	return uni.request({
@@ -37,5 +41,6 @@ function postEaysiot(url,params,Authorization){
 
 export default{
 	login,
-	userjwt
+	userjwt,
+	registered
 }

@@ -287,7 +287,7 @@ CREATE TABLE `iot_user`  (
 -- ----------------------------
 -- Records of iot_user
 -- ----------------------------
-INSERT INTO `iot_user` VALUES (1, 'admin', '$2a$10$YkU2BVdN8CZC/ICRMj3WaOswDeH1ZLLuzUIE6.sntTXpsbpXSJyBu', '15888888888', 'lee.lusifer@gmail.com', '2019-04-04 23:21:27', '2019-04-04 23:21:29');
+INSERT INTO `iot_user` VALUES (1, 'admin', '$2a$10$YkU2BVdN8CZC/ICRMj3WaOswDeH1ZLLuzUIE6.sntTXpsbpXSJyBu', '15888888888', 'tounans@tounans.com', '2019-04-04 23:21:27', '2019-04-04 23:21:29');
 
 -- ----------------------------
 -- Table structure for iot_user_role
