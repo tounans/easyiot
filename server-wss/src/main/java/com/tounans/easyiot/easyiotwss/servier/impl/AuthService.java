@@ -35,7 +35,7 @@ public class AuthService implements IAuthService {
             String key = "user_token:"+token;
             String value = stringRedisTemplate.opsForValue().get(key);
             AuthToken authToken = JSON.parseObject(value, AuthToken.class);
-            user = JwtUtil.getUser(JwtUtil.getJwt("publickey.txt", authToken.getJwt_token()));
+            user = JwtUtil.getUser(JwtUtil.getJwt("D:/key/publickey.txt", authToken.getJwt_token()));
         } catch (Exception e) {
             e.printStackTrace();
             return user;

@@ -13,14 +13,15 @@ import java.io.*;
 public class JwtUtil {
 
      public static Jwt getJwt(String publicKeyFile,String jwtString){
-          Resource resource = new ClassPathResource(publicKeyFile);
-          File file = null;
-          try {
-               file = resource.getFile();
-          } catch (IOException e) {
-               e.printStackTrace();
-               return null;
-          }
+//          Resource resource = new ClassPathResource(publicKeyFile);
+//          File file = null;
+//          try {
+//               file = resource.getFile();
+//          } catch (IOException e) {
+//               e.printStackTrace();
+//               return null;
+//          }
+          File file = new File(publicKeyFile);
           String publicKey = getTemplateContent(file);
           return JwtHelper.decodeAndVerify(jwtString, new RsaVerifier(publicKey));
      }

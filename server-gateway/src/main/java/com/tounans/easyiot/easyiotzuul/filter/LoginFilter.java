@@ -75,7 +75,7 @@ public class LoginFilter extends ZuulFilter {
         }
         String token = null;
         try{
-            token = JwtUtil.getToken(JwtUtil.getJwt("publickey.txt", jwtFromHeader));
+            token = JwtUtil.getToken(JwtUtil.getJwt("D:/key/publickey.txt", jwtFromHeader));
         }catch (Exception e){
             access_denied();
             return null;

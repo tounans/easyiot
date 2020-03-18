@@ -18,8 +18,8 @@
 
     <modules>
 
-        <module>common</module>
 
+        <module>common</module>
         <module>server-gateway</module>
         <module>server-auth</module>
         <module>server-config</module>
