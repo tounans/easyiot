@@ -14,6 +14,15 @@
  |server-init|8090|否|设备初始化|
  |server-server|8761|否|Eureka|
  
+**目录介绍**
+--- 
+ |目录|介绍| 
+ | ------------- | ------------- | 
+ |data/img |运行后效果图|
+ |data/key|生成Key|
+ |data/lua|硬件源码|
+ |data/sql|数据库|
+ |data/uni|UNI源码|
 
 **介绍**
 ---
