@@ -1,6 +1,6 @@
 import Vue from 'vue'
 var pageSize = 20;
-const baseUrl = "http://localhost/";
+const baseUrl = "http://127.0.0.1/";
 
 function setUser(user){
 	uni.setStorage({

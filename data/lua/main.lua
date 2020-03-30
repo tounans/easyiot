@@ -28,13 +28,11 @@ wdt.setup(pio.P0_30, pio.P0_31)
 
 
 
-
-
 _G.initUrl  = "http://localhost/init"
 _G.mqttHost = "127.0.0.1"
-_G.mqttPort = "8765"
-_G.mqttUser = "username"
-_G.mqttPass = "password"
+_G.mqttPort = "22598"
+_G.mqttUser = "admin"
+_G.mqttPass = "public"
 
 --启动系统框架
 sys.init(0, 0)

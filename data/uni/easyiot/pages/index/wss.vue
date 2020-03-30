@@ -239,11 +239,11 @@
 			},			
 			uartChange(e){
 				this.uartIndex = e.detail.value;
-				this.uart.uart = e.detail.value;
+				this.gpio.gpio = this.uartListTemp[e.detail.value].uartId;
 			},
 			gpioChange(e){
 				this.gpioIndex = e.detail.value;
-				this.gpio.gpio = e.detail.value;
+				this.gpio.gpio = this.gpioListTemp[e.detail.value].gpioId;
 			},
 			gpioStateChange(e){
 				this.gpio.state = e.detail.value;

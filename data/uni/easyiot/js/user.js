@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8040/auth";
+const baseUrl = "http://127.0.0.1:8040/auth";
 
 function login(user){
 	return post("/userlogin",user)

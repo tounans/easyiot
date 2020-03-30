@@ -9,7 +9,7 @@ netty:
   wss:
     port: 8088
     sslType: JKS
-    sslPath: D://wss.jks
+    sslPath: D://key/wss.jks
     sslPass: netty123
 
 eureka:

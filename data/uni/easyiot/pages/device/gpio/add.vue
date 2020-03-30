@@ -49,9 +49,9 @@
 				<view class="cu-form-group">
 					
 					<view class="title">状态</view>		
-					<picker @change="stateChange" :value="gpio.state" :range="state">
+					<picker @change="stateChange" :value="gpio.stateTemp" :range="stateTmep">
 						<view class="picker">
-							{{state[gpio.state]}}
+							{{stateTmep[gpio.stateTmep]}}
 						</view>
 					</picker>
 					
@@ -76,13 +76,14 @@
                 return {
 					method: ['中断', '输出'],
 					def: ['低电平', '高电平'],
-					state: ['禁用', '启用'],
+					stateTmep: ['禁用', '启用'],
 					gpio:{
 						imei:"",
 						method:0,
 						def:0,
 						current:0,
-						state:0
+						state:false,
+						stateTmep:0
 					},
 					deviceTemp:[],
 					deviceList:[],
@@ -101,7 +102,8 @@
 					this.gpio.def = e.detail.value;
 				},
 				stateChange(e) {
-					this.gpio.state = e.detail.value;
+					this.gpio.stateTmep= e.detail.value;
+					this.gpio.state = e.detail.value == 0 ?false:true;
 				},
 				sub(){
 					var that = this;

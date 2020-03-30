@@ -57,9 +57,9 @@
 				<view class="cu-form-group">
 					
 					<view class="title">状态</view>		
-					<picker @change="stateChange" :value="gpio.state" :range="state">
+					<picker @change="stateChange" :value="gpio.stateTmep" :range="stateTmep">
 						<view class="picker">
-							{{state[gpio.state]}}
+							{{stateTmep[gpio.stateTmep]}}
 						</view>
 					</picker>
 					
@@ -83,14 +83,15 @@
                 return {
 					method: ['中断', '输出'],
 					def: ['低电平', '高电平'],
-					state: ['禁用', '启用'],
+					stateTmep: ['禁用', '启用'],
 					gpio:{
 						imei:"",
 						gpioId:0,
 						method:0,
 						def:0,
-						current:0,
-						state:0
+						current:0,						
+						state:false,
+						stateTmep:0
 					}
                 }
             },
@@ -102,7 +103,8 @@
 					this.gpio.def = e.detail.value
 				},
 				stateChange(e) {
-					this.gpio.state = e.detail.value
+					this.gpio.stateTmep= e.detail.value;
+					this.gpio.state = e.detail.value == 0 ?false:true;
 				},
 				sub(){
 					var that = this;
@@ -138,9 +140,11 @@
                 uni.$once('gpioEdit',function(data){	
 					that.gpio = data.gpio
 					if(that.gpio.state){
-						that.gpio.state = 1;
+						that.gpio.state = true;
+						that.gpio.stateTmep = 1;
 					}else{
-						that.gpio.state = 0;
+						that.gpio.state = false;
+						that.gpio.stateTmep = 0;
 					}
 				})
 				

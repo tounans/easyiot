@@ -17,7 +17,7 @@
 							{{ item.alias}}
 							<view class="text-gray text-sm">
 								<view class='cu-tag round margin-lr-xs bg-blue light'>IO_{{ item.gpioId}}</view>
-								<view class='cu-tag round margin-lr-xs bg-blue light'>{{ item.method==1?'输入':'中断'}}</view>
+								<view class='cu-tag round margin-lr-xs bg-blue light'>{{ item.method==1?'输出':'中断'}}</view>
 								<view class='cu-tag round margin-lr-xs bg-blue light'>默认{{ item.def==1?'高电平':'低电平'}}</view>
 							</view>
 						</view>

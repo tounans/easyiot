@@ -67,9 +67,9 @@
 				
 				<view class="cu-form-group">					
 					<view class="title">状态</view>		
-					<picker @change="stateChange" :value="uart.state" :range="state">
+					<picker @change="stateChange" :value="uart.stateTmep" :range="stateTmep">
 						<view class="picker">
-							{{state[uart.state]}}
+							{{stateTmep[uart.stateTmep]}}
 						</view>
 					</picker>
 				</view>
@@ -93,14 +93,15 @@
 					method: ['输入', '输出'],
 					parity: ['PAR_EVEN', 'PAR_ODD','PAR_NONE'],
 					stopbits: ['STOP_1', 'STOP_2'],
-					state: ['禁用', '启用'],
+					stateTmep: ['禁用', '启用'],
 					uart:{
 						imei:"",
 						method:0,
 						uartId:0,
 						parity:0,
 						stopbits:0,
-						state:0
+						state:false,
+						stateTmep:0
 					}
                 }
             },
@@ -115,7 +116,8 @@
 					this.uart.stopbits = e.detail.value
 				},
 				stateChange(e) {
-					this.uart.state = e.detail.value
+					this.uart.stateTmep= e.detail.value;
+					this.uart.state = e.detail.value == 0 ?false:true;
 				},
 				sub(){
 					var that = this;
@@ -151,9 +153,11 @@
                 uni.$once('uartEdit',function(data){	
 					that.uart = data.uart
 					if(that.uart.state){
-						that.uart.state = 1;
+						that.uart.state = true;
+						that.uart.stateTmep = 1;
 					}else{
-						that.uart.state = 0;
+						that.uart.state = false;
+						that.uart.stateTmep = 0;
 					}
 				})
 				
